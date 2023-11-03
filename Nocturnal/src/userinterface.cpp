@@ -6,7 +6,7 @@
 
 UserInterface::UserInterface()
 { 
-	background = LoadTexture("../textures/background/DesertForest.png");
+	background = LoadTexture("textures/background/DesertForest.png");
 	gameObjects.push_back(this); 
 } // Add this to the game objects list
 
@@ -14,20 +14,21 @@ UserInterface::~UserInterface()
 {
 }
 
-void UserInterface::update() { if (!gamePaused) { gameTime += GetFrameTime(); } } // Add 1 second per second to the total game time
+void UserInterface::update() { if (!gamePaused && isPlayerAlive) { gameTime += GetFrameTime(); } } // Add 1 second per second to the total game time
 
 void UserInterface::render()
 {
 	DrawTexture(background, 0, 0, WHITE);
+	DrawLine(0, 500, windowWidth, 500, WHITE);
+
+	// Basic user interface that are needed at all time
+	DrawText(("TIME: " + formatTime(gameTime)).c_str(), 10, 0, 24, RED); // Render total game time
+	DrawText(("SCORE: " + std::to_string(score)).c_str(), windowWidth - 160, 0, 24, RED); // Render score
+	DrawText(("HEALTH: " + std::to_string(playerHealth)).c_str(), windowWidth - 160, 25, 24, GREEN); // Render player health
 
 	// Only render these if the player is alive
 	if(isPlayerAlive)
 	{
-		// Basic user interface that are needed at all time
-		DrawText(("TIME: " + formatTime(gameTime)).c_str(), 10, 0, 24, RED); // Render total game time
-		DrawText(("SCORE: " + std::to_string(score)).c_str(), windowWidth - 160, 0, 24, RED); // Render score
-		DrawText(("HEALTH: " + std::to_string(playerHealth)).c_str(), windowWidth - 160, 25, 24, GREEN); // Render player health
-
 		if (bullets > 0) { DrawText(("BULLETS: " + std::to_string(bullets)).c_str(), 10, 25, 24, RED); } // If bullets > 0 then rneder this
 		else // Else render this
 		{

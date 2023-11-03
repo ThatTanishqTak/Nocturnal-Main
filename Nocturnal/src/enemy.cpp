@@ -58,8 +58,9 @@ void Enemy::render()
 
 void Enemy::spawnEnemy()
 {
-	elapsedTime += GetFrameTime(); // Add 1 second per second
-	if (elapsedTime >= spawnTime)
+	if (isPlayerAlive) { elapsedTime += GetFrameTime(); } // Add 1 second per second
+
+	if (elapsedTime >= spawnTime && isPlayerAlive)
 	{
 		elapsedTime = 0.0f; // Reset the time since last spawn
 
@@ -76,8 +77,9 @@ void Enemy::spawnEnemy()
 
 void Enemy::enemyAttack()
 {
-	enemyLifetime += GetFrameTime(); // Incrementing the enemy lifetime by 1 second per second
-	if (enemyLifetime >= 3.0f) // If enemy is alive for more than 3 seconds then shoot
+	if (isPlayerAlive) { enemyLifetime += GetFrameTime(); } // Incrementing the enemy lifetime by 1 second per second
+
+	if (enemyLifetime >= 3.0f && isPlayerAlive) // If enemy is alive for more than 3 seconds then shoot
 	{
 		playerHealth -= 5; // decrement player health
 		enemyLifetime = 0.0f; // reset enemy timer
