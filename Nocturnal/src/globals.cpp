@@ -44,6 +44,6 @@ int playerHealth = 100;
 /*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Enemy variables
-Vector2 enemyPos = { static_cast<float>(GetRandomValue(0, windowWidth - 100)), static_cast<float>(GetRandomValue(0, windowHeight - 100)) };
+Vector2 enemyPos = { static_cast<float>(GetRandomValue(0, windowWidth - 100)), static_cast<float>(GetRandomValue(400, 500)) };
 float enemyLifetime = 0.0f;
 /*-------------------------------------------------------------------------------------------------------------------------------------------------*/

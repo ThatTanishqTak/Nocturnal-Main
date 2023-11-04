@@ -65,7 +65,7 @@ void Enemy::spawnEnemy()
 		elapsedTime = 0.0f; // Reset the time since last spawn
 
 		enemyStruct newEnemy; // Instantiate a new enemy
-		newEnemy.enemyRec = { static_cast<float>(GetRandomValue(10, windowWidth - 100)), static_cast<float>(GetRandomValue(10, windowHeight - 100)), 
+		newEnemy.enemyRec = { static_cast<float>(GetRandomValue(10, windowWidth - 100)), static_cast<float>(GetRandomValue(400, 500)), 
 									50.0f, 50.0f}; // Set random position for the new enemy
 		
 		newEnemy.isAlive = true; // Make sure that enemy is alive

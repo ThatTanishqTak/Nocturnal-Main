@@ -20,8 +20,9 @@ void UserInterface::render()
 {
 	DrawTexture(background, 0, 0, WHITE);
 	DrawLine(0, 500, windowWidth, 500, WHITE);
+	DrawLine(0, 400, windowWidth, 400, WHITE);
 
-	// Basic user interface that are needed at all time
+	// Basic user interface that is needed at all time
 	DrawText(("TIME: " + formatTime(gameTime)).c_str(), 10, 0, 24, RED); // Render total game time
 	DrawText(("SCORE: " + std::to_string(score)).c_str(), windowWidth - 160, 0, 24, RED); // Render score
 	DrawText(("HEALTH: " + std::to_string(playerHealth)).c_str(), windowWidth - 160, 25, 24, GREEN); // Render player health
