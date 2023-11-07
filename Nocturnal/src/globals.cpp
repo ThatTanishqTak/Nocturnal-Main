@@ -33,7 +33,7 @@ void restart()
 	}
 }
 
-void pause() { if (IsKeyPressed(KEY_P)) { gamePaused = !gamePaused; } } // If P is pressed then toggle between pause and unpause
+void pause() { if (IsKeyPressed(KEY_P) && isPlayerAlive) { gamePaused = !gamePaused; } } // If P is pressed then toggle between pause and unpause
 /*-------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 // Player variables
